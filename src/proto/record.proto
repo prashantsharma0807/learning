@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package record;
+
+message StudentRecordRequest {
+    int32 studentId = 1;
+}
+
+message StudentRecordResponse {
+    int32 recordId =1;
+    int32 studentId =2;
+    string programId =3;
+    string result =4;
+    string grade =5;
+}
+
+service RecordService {
+    rpc GetStudentRecord (StudentRecordRequest) returns (StudentRecordResponse);
+}

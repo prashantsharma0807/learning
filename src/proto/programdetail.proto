@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package program_detail;
+
+message ProgramDetailRequest{
+    string pgmId = 1;
+}
+
+message Subject {
+    string subjectId = 1;
+    string subjectName = 2;
+    string subjectCode = 3;
+    int32 credits = 4; 
+}
+
+message ProgramDetailResponse{
+    string programName = 1;
+    string programLevel = 2; 
+    bool programStatus = 3;
+    repeated Subject subjects = 4;
+    string programId =5;
+}
+
+service ProgramDetail{
+    rpc getProgramDetail(ProgramDetailRequest) returns (ProgramDetailResponse);
+}
